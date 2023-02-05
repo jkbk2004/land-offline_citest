@@ -10,5 +10,5 @@ WORKDIR $HOME/land-offline_citest
 
 RUN pwd
 
-RUN echo $(ls -1 $HOME/land-offline_citest)
+RUN echo $(ls -l $HOME/land-offline_citest)
 #CMD pwd; ls; mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..
