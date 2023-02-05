@@ -43,9 +43,14 @@ jobs:
     - name: docker push tag ufs-noahmp_landa:develop
       run: | 
        echo "docker push ..."
-       docker images
-       docker push jongkim2004/ufs-noahmp_landa:develop
-        
+       docker images 
+       if [[ $(docker image inspect ufs-noahmp_landa:develop) ]]; then
+        echo "docker push tag ..."
+        docker push jongkim2004/ufs-noahmp_landa:develop
+       else
+        echo "ufs-noahmp_landa:develop was not generated ..."
+       fi
+       
     - name: docker logout
       run: |
        docker logout
