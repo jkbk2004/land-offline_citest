@@ -69,7 +69,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
-    - name: Patch Docker Daemon data-root
+    #- name: Patch Docker Daemon data-root
       run: |
         DOCKER_DATA_ROOT='/mnt/var/lib/docker'
         DOCKER_DAEMON_JSON='/etc/docker/daemon.json'
