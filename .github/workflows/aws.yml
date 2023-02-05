@@ -70,14 +70,14 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }}
     #- name: Patch Docker Daemon data-root
+    #  run: |
+    #    DOCKER_DATA_ROOT='/mnt/var/lib/docker'
+    #    DOCKER_DAEMON_JSON='/etc/docker/daemon.json'
+    #    sudo mkdir -p "${DOCKER_DATA_ROOT}"
+    #    jq --arg dataroot "${DOCKER_DATA_ROOT}" '. + {"data-root": $dataroot}' "${DOCKER_DAEMON_JSON}" > "/tmp/docker.json.tmp"
+    #    sudo mv "/tmp/docker.json.tmp" "${DOCKER_DAEMON_JSON}"
+    #    sudo systemctl restart doc        
       run: |
-        DOCKER_DATA_ROOT='/mnt/var/lib/docker'
-        DOCKER_DAEMON_JSON='/etc/docker/daemon.json'
-        sudo mkdir -p "${DOCKER_DATA_ROOT}"
-        jq --arg dataroot "${DOCKER_DATA_ROOT}" '. + {"data-root": $dataroot}' "${DOCKER_DAEMON_JSON}" > "/tmp/docker.json.tmp"
-        sudo mv "/tmp/docker.json.tmp" "${DOCKER_DAEMON_JSON}"
-        sudo systemctl restart doc        
-      #run: |
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
@@ -89,7 +89,6 @@ jobs:
         #docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         #docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         #echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-
     #- name: Fill in the new image ID in the Amazon ECS task definition
     #  id: task-def
     #  uses: aws-actions/amazon-ecs-render-task-definition@v1
