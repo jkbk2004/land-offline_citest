@@ -1,5 +1,5 @@
 #From noaaepic/ubuntu20.04-intel-landda:develop
-From noaaepic/ubuntu20.04-intel-spack-ufswm
+From noaaepic/ubuntu20.04-intel-spack-ufswm:develop
 
 CMD ["/bin/bash"]
 
