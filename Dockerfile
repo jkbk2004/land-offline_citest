@@ -6,4 +6,4 @@ ENV HOME=/home
 COPY . $HOME/
 
 WORKDIR $HOME/land-offline_citest
-CMD mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..
+CMD pwd; ls; mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..
