@@ -24,4 +24,4 @@ jobs:
       with:
         submodules: recursive
     - name: Build the Docker image
-      run: docker build --no-cache --compress . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker system prune; docker build --no-cache --compress . --file Dockerfile --tag my-image-name:$(date +%s)
