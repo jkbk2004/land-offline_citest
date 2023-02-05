@@ -6,9 +6,9 @@ CMD ["/bin/bash"]
 ENV HOME=/home
 COPY . $HOME/
 
-WORKDIR $HOME/land-offline_citest
+WORKDIR $HOME
 
 RUN pwd
 
-RUN echo $(ls -l $HOME)
-#CMD pwd; ls; mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..
+#RUN echo $(ls -l $HOME)
+CMD mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..; make -j 2
