@@ -87,7 +87,7 @@ jobs:
         sudo rm -rf /usr/share/dotnet
         sudo rm -rf "$AGENT_TOOLSDIRECTORY"
         df -h
-        #docker run -d --tmpfs /run:rw,noexec,nosuid,size=65536k noaaepic/ubuntu20.04-intel-landda:develop
+        docker run -d --tmpfs /run:rw,noexec,nosuid,size=65536k noaaepic/ubuntu20.04-intel-landda:develop
         #docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         #docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         #echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
