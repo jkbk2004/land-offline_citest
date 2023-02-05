@@ -43,6 +43,7 @@ jobs:
     - name: docker push tag ufs-noahmp_landa:develop
       run: | 
        echo "docker push ..."
+       docker images
        docker push jongkim2004/ufs-noahmp_landa:develop
         
     - name: docker logout
