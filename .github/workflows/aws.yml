@@ -40,11 +40,11 @@ jobs:
         docker build -t ufs-noahmp_landa:develop .
         df -h
 
-      - name: docker push tag ufs-noahmp_landa:develop
-        run: | 
-	  echo "docker push ..."
-	  docker push jongkim2004/ufs-noahmp_landa:develop
+    - name: docker push tag ufs-noahmp_landa:develop
+      run: | 
+       echo "docker push ..."
+       docker push jongkim2004/ufs-noahmp_landa:develop
         
-      - name: docker logout
-        run: |
-          docker logout
+    - name: docker logout
+      run: |
+       docker logout
