@@ -2,7 +2,7 @@ From noaaepic/ubuntu20.04-intel-landda:develop
 
 CMD ["/bin/bash"]
 
-ENV HOME=/tmp
+ENV HOME=/home
 COPY --chown=builder:builder . $HOME/land-offline_citest
 
 WORKDIR $HOME/land-offline_citest
