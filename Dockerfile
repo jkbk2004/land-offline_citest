@@ -1,10 +1,9 @@
-#From noaaepic/ubuntu20.04-intel-landda:develop
-From noaaepic/ubuntu20.04-intel-spack-ufswm:develop
+From noaaepic/ubuntu20.04-intel-landda:develop
 
 CMD ["/bin/bash"]
 
 ENV HOME=/home
-COPY --chown=builder:builder . $HOME/land-offline_citest
+COPY . $HOME/
 
 WORKDIR $HOME/land-offline_citest
-#CMD mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..
+CMD mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..
