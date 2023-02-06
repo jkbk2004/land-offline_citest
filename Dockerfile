@@ -1,5 +1,4 @@
-#From noaaepic/ubuntu20.04-intel-landda:develop
-From jongkim2004/ubuntu-hpc:v1.2
+From noaaepic/ubuntu20.04-intel-landda:develop
 
 CMD ["/bin/bash"]
 
@@ -10,5 +9,6 @@ WORKDIR $HOME
 
 RUN pwd
 
-#RUN echo $(ls -l $HOME)
+RUN echo $(ls $HOME)
+
 CMD mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..; make -j 2
