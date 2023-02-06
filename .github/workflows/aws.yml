@@ -1,4 +1,4 @@
-name: Deploy Land DA Container
+name: Continuous Delivery of Land DA Container
 
 on:
   push:
