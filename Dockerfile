@@ -11,4 +11,4 @@ RUN pwd
 
 RUN echo $(ls $HOME)
 
-CMD mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..; make -j 2
+RUN mkdir build; cd build; source /opt/spack-stack/.bashenv; ecbuild ..; make -j 2
