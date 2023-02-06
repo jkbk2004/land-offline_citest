@@ -52,6 +52,6 @@ jobs:
         echo "ufs-noahmp_landa:develop was not generated ..."
        fi
        
-    - name: docker logout
+    - name: Docker Logout
       run: |
        docker logout
