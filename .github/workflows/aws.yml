@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy
+    name: Land DA Continuous Integration and Continuous Deployment
     runs-on: ubuntu-latest
     environment: production
 
@@ -27,9 +27,8 @@ jobs:
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-    - name: Build, tag, and push image to DockerHub
+    - name: ======= Build Docker Image =======
       run: |
-        # Build Docker container and push and deploy to Docker
         echo "maximize disk space on git-runner ..."
         df -h 
         sudo rm -rf /usr/share/dotnet
@@ -42,9 +41,8 @@ jobs:
         docker build -t ufs-noahmp_landa:develop .
         df -h
 
-    - name: docker push tag ufs-noahmp_landa:develop
+    - name: ======= docker tag and push ufs-noahmp_landa:develop to DockerHub =======
       run: | 
-       echo "docker push ..."
        docker images 
        if [[ $(docker image inspect ufs-noahmp_landa:develop) ]]; then
         echo "docker push tag ..."
