@@ -46,6 +46,7 @@ jobs:
        docker images 
        if [[ $(docker image inspect ufs-noahmp_landa:develop) ]]; then
         echo "docker push tag ..."
+        docker tag ufs-noahmp_landa:develop jongkim2004/ufs-noahmp_landa:develop
         docker push jongkim2004/ufs-noahmp_landa:develop
        else
         echo "ufs-noahmp_landa:develop was not generated ..."
